@@ -39,7 +39,7 @@ class _CustomAppBar extends StatelessWidget {
         backgroundColor: Colors.indigo,
         expandedHeight: 200,
         floating: false,
-        pinned: true, 
+        pinned: true,
         flexibleSpace: FlexibleSpaceBar(
           titlePadding: EdgeInsets.zero,
           centerTitle: true,
@@ -79,7 +79,7 @@ class _PosterAndTitle extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Hero(
-            tag: picture.copyright ?? '',
+            tag: picture.title ?? '',
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: FadeInImage.assetNetwork(

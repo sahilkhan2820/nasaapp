@@ -48,12 +48,13 @@ class NasaWidget extends StatelessWidget {
 
     return Column(
       children: [
-        //  Categorylist(selectedCategory: 0),
         SizedBox(
           width: double.infinity,
           height: deviceSize.height,
-          child: ListView.builder(
+          child: GridView.builder(
             itemCount: pictures.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2, crossAxisSpacing: 2.0, mainAxisSpacing: 2.0),
             itemBuilder: (BuildContext context, int index) {
               final picture = pictures[index];
               //    picture.id = 'swiper-${picture.id}' ;
@@ -65,13 +66,13 @@ class NasaWidget extends StatelessWidget {
                   elevation: 5,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Row(
+                    child: Column(
                       children: [
                         Expanded(
                           child: SizedBox(
-                            height: 180,
+                            height: 200,
                             child: Hero(
-                              tag: picture.copyright ?? 0,
+                              tag: picture.title ?? '',
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(16),
                                 child: FadeInImage.assetNetwork(
@@ -94,7 +95,7 @@ class NasaWidget extends StatelessWidget {
                               Text(picture.title ?? '',
                                   style: TextStyle(
                                       color: Colors.red,
-                                      fontSize: 16,
+                                      fontSize: 12,
                                       fontWeight: FontWeight.bold)),
                               SizedBox(height: 10),
                               Expanded(
@@ -102,8 +103,8 @@ class NasaWidget extends StatelessWidget {
                                       overflow: TextOverflow.clip,
                                       style: TextStyle(
                                           color: Colors.blueGrey,
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.bold)))
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.w500)))
                             ],
                           ),
                         ))
